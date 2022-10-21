@@ -24,22 +24,62 @@ public class Anya : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown("space"))
+        {
+            setHunger(1000);
+            setSleepy(-1000);
+            setBored(30);
+        }
     }
 
     public void setHunger(int value)
     {
-        this.hunger = value;
+        int currentHunger = hunger;
+        if (isSanitizedStatusVariables(currentHunger, value))
+        {
+            hunger = 100;
+        }
+        else
+        {
+            hunger = hunger + value;
+        }
+        
     }
 
     public void setSleepy(int value)
     {
-        this.sleepy = value;
+        int currentSleepy = sleepy;
+        if (isSanitizedStatusVariables(currentSleepy, value))
+        {
+            sleepy = 100;
+        }
+        else
+        {
+            sleepy = sleepy + value;
+        }
+        
     }
 
     public void setBored(int value)
     {
-        this.bored = value;
+        int currentBored = bored;
+        if (isSanitizedStatusVariables(currentBored, value))
+        {
+            bored = 100;
+        }
+        else
+        {
+            bored = bored + value;
+        }
+
+    }
+
+    //In case the result lead to an undesirabled value, we set it to 100 and return.
+    private bool isSanitizedStatusVariables(int currentValue, int addedValue)
+    {
+        if (currentValue + addedValue > 100 || currentValue + addedValue < 100 || currentValue > 100 || currentValue < 0)
+            return true;
+        return false;
     }
 
 }
