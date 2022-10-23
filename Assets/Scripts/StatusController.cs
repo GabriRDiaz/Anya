@@ -7,13 +7,13 @@ public class StatusController : MonoBehaviour
     private Anya anyaController;
 
     //Intervals in seconds.
-    public int HUNGER_DECREASING_INTERVAL = 120;
+    public float HUNGER_DECREASING_INTERVAL = 120f;
     public int HUNGER_DECREASING_VALUE = 2;
 
-    public int BORING_DECREASING_INTERVAL = 120;
+    public float BORING_DECREASING_INTERVAL = 120f;
     public int BORING_DECREASING_VALUE = 2;
 
-    public int SLEEP_DECREASING_INTERVAL = 180;
+    public float SLEEP_DECREASING_INTERVAL = 180f;
     public int SLEEP_DECREASING_VALUE = 1;
 
     // Start is called before the first frame update
@@ -27,6 +27,12 @@ public class StatusController : MonoBehaviour
     {
         anyaController.setHunger(HUNGER_DECREASING_VALUE*(-1));
         anyaController.getHunger();
+    }
+
+    public void addHunger(int value)
+    {
+        Debug.Log("Error" + value);
+        anyaController.setHunger(value);
     }
     // Update is called once per frame
     void Update()

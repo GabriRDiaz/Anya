@@ -28,6 +28,7 @@ public class Anya : MonoBehaviour
 
     public void setHunger(int value)
     {
+         
         int currentValue = hunger;
         if (isSanitizedStatusVariables(currentValue, value))
         {
@@ -76,5 +77,8 @@ public class Anya : MonoBehaviour
         return true;
     }
 
-    public void getHunger() { Debug.Log(this.hunger); }
+    public int getHunger() { 
+        Debug.Log(this.hunger);
+        return hunger;
+    }
 }

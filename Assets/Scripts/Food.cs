@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Food : MonoBehaviour
 {
+    private StatusController status;
     Vector3 initialPos;
     Vector3 offset;
     public string destinationTag = "AnyaHead";
-    public int foodAmount;
+    public int foodAmount = 10;
 
     void Start()
     {
         initialPos = transform.position;
         Debug.Log(initialPos);
+        status = GameObject.Find("Anya").GetComponent<StatusController>();
     }
 
     void OnMouseDown()
@@ -37,6 +40,7 @@ public class Food : MonoBehaviour
             {
                 Debug.Log("Anya");
                 transform.position = hitInfo.transform.position;
+                status.addHunger(foodAmount);               
             }
             
         }
