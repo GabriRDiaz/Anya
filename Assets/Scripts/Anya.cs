@@ -36,7 +36,6 @@ public class Anya : MonoBehaviour
         }
         else
         {
-            Debug.Log("here");
             hunger = 100;
         }
     }

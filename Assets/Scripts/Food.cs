@@ -40,7 +40,8 @@ public class Food : MonoBehaviour
             {
                 Debug.Log("Anya");
                 transform.position = hitInfo.transform.position;
-                status.addHunger(foodAmount);               
+                status.addHunger(foodAmount);
+                Destroy(gameObject);
             }
             
         }
