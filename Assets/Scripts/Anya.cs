@@ -39,6 +39,10 @@ public class Anya : MonoBehaviour
             hunger = 100;
         }
     }
+    public int getHunger() 
+    { 
+        return hunger;
+    }
     public void setSleepy(int value)
     {
         int currentValue = sleepy;
@@ -51,6 +55,10 @@ public class Anya : MonoBehaviour
         {
             sleepy = 100;
         }
+    }
+    public int getSleepy()
+    {
+        return sleepy;
     }
 
     public void setBored(int value)
@@ -66,7 +74,9 @@ public class Anya : MonoBehaviour
             bored = 100;
         }
     }
-   
+   public int getBored() {
+        return  this.bored;
+   }
 
     //In case the result lead to an undesirabled value, we set it to 100 and return.
     private bool isSanitizedStatusVariables(int currentValue, int addedValue)
@@ -77,8 +87,4 @@ public class Anya : MonoBehaviour
         return true;
     }
 
-    public int getHunger() { 
-        Debug.Log(this.hunger);
-        return hunger;
-    }
 }

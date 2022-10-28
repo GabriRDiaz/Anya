@@ -33,15 +33,21 @@ public class StatusController : MonoBehaviour
 
     public void addHunger(int value)
     {
-        anyaController.setHunger(value);
+        if(anyaController.getHunger() > 0){
+            anyaController.setHunger(value);
+        }
     }
     private void decreaseSleep()
     {
-        anyaController.setSleepy(SLEEP_DECREASING_VALUE*(-1));
+        if(anyaController.getSleepy() > 0){
+            anyaController.setSleepy(SLEEP_DECREASING_VALUE*(-1));
+        }
     }
     private void decreaseBoring()
     {
-        anyaController.setBored(BORING_DECREASING_VALUE*(-1));
+        if(anyaController.getBored() > 0) {
+            anyaController.setBored(BORING_DECREASING_VALUE*(-1));
+        }
     }
     // Update is called once per frame
     void Update()
