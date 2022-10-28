@@ -22,6 +22,7 @@ public class StatusController : MonoBehaviour
         anyaController = gameObject.GetComponent<Anya>();
         InvokeRepeating("decreaseHunger", 2.0f, HUNGER_DECREASING_INTERVAL);
         InvokeRepeating("decreaseSleep",2.0f, SLEEP_DECREASING_INTERVAL);
+        InvokeRepeating("decreaseBoring",2.0f,BORING_DECREASING_INTERVAL);
     }
 
     private void decreaseHunger()
@@ -32,13 +33,15 @@ public class StatusController : MonoBehaviour
 
     public void addHunger(int value)
     {
-        Debug.Log("Error" + value);
         anyaController.setHunger(value);
     }
     private void decreaseSleep()
     {
         anyaController.setSleepy(SLEEP_DECREASING_VALUE*(-1));
-        
+    }
+    private void decreaseBoring()
+    {
+        anyaController.setBored(BORING_DECREASING_VALUE*(-1));
     }
     // Update is called once per frame
     void Update()

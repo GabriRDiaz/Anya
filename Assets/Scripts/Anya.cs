@@ -66,12 +66,13 @@ public class Anya : MonoBehaviour
             bored = 100;
         }
     }
+   
 
     //In case the result lead to an undesirabled value, we set it to 100 and return.
     private bool isSanitizedStatusVariables(int currentValue, int addedValue)
     {
         int result = currentValue + addedValue;
-        if (result > 100 || result < 0 || currentValue > 100 || currentValue < 0)
+        if (result > 100 || currentValue > 100 || currentValue < 0)
             return false;
         return true;
     }
