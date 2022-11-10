@@ -11,8 +11,12 @@ public class Anya : MonoBehaviour
 
     public bool isEating;
     //Will be on true while sleeping. Stored in JSON.
-    public bool isSleeping;
+    public bool isSleep;
 
+    public bool isSleeping()
+    {
+        return this.isSleep;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +32,7 @@ public class Anya : MonoBehaviour
         hunger = this.storedStatus.hunger;
         sleepy = this.storedStatus.sleepy;
         bored = this.storedStatus.bored;
+        isSleep = false;
     }
 
     // Update is called once per frame
