@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Anya : MonoBehaviour
 {
-    //Values from 100 to 0 where 0 is hungry, sleepy, bored. Stored in JSON
+    private StatusData storedStatus;
     public int hunger;
     public int sleepy;
     public int bored;
@@ -16,9 +16,18 @@ public class Anya : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hunger = 50;
-        sleepy = 50;
-        bored = 50;
+        if (JsonUtils.isPathCreated())
+        {
+            storedStatus = JsonUtils.readData();
+        }
+        else
+        {
+            JsonUtils.createFirstTimeData();
+            storedStatus = JsonUtils.readData();
+        }
+        hunger = this.storedStatus.hunger;
+        sleepy = this.storedStatus.sleepy;
+        bored = this.storedStatus.bored;
     }
 
     // Update is called once per frame
