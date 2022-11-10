@@ -16,70 +16,75 @@ public class Anya : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        setHunger(50);
-        setSleepy(50);
-        setBored(50);
+        hunger = 50;
+        sleepy = 50;
+        bored = 50;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            setHunger(1000);
-            setSleepy(-1000);
-            setBored(30);
-        }
     }
 
     public void setHunger(int value)
     {
-        int currentHunger = hunger;
-        if (isSanitizedStatusVariables(currentHunger, value))
-        {
-            hunger = 100;
-        }
-        else
+         
+        int currentValue = hunger;
+        if (isSanitizedStatusVariables(currentValue, value))
         {
             hunger = hunger + value;
         }
-        
+        else
+        {
+            hunger = 100;
+        }
     }
-
+    public int getHunger() 
+    { 
+        return hunger;
+    }
     public void setSleepy(int value)
     {
-        int currentSleepy = sleepy;
-        if (isSanitizedStatusVariables(currentSleepy, value))
-        {
-            sleepy = 100;
-        }
-        else
+        int currentValue = sleepy;
+
+        if (isSanitizedStatusVariables(currentValue, value))
         {
             sleepy = sleepy + value;
         }
-        
+        else
+        {
+            sleepy = 100;
+        }
+    }
+    public int getSleepy()
+    {
+        return sleepy;
     }
 
     public void setBored(int value)
     {
-        int currentBored = bored;
-        if (isSanitizedStatusVariables(currentBored, value))
-        {
-            bored = 100;
-        }
-        else
+        int currentValue = bored;
+
+        if (isSanitizedStatusVariables(currentValue, value))
         {
             bored = bored + value;
         }
-
+        else
+        {
+            bored = 100;
+        }
     }
+   public int getBored() {
+        return  this.bored;
+   }
 
     //In case the result lead to an undesirabled value, we set it to 100 and return.
     private bool isSanitizedStatusVariables(int currentValue, int addedValue)
     {
-        if (currentValue + addedValue > 100 || currentValue + addedValue < 100 || currentValue > 100 || currentValue < 0)
-            return true;
-        return false;
+        int result = currentValue + addedValue;
+        if (result > 100 || currentValue > 100 || currentValue < 0)
+            return false;
+        return true;
     }
 
 }
