@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Food
   - AnyaHead
+  - ShopUI
   layers:
   - Default
   - TransparentFX
