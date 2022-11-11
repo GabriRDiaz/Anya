@@ -23,6 +23,7 @@ public class LightController : MonoBehaviour
             lt.color = Color.black;
         }
         isDarken = !isDarken;
+        Debug.Log(isDarken);
     }
 
 }

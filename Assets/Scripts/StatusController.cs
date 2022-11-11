@@ -30,9 +30,9 @@ public class StatusController : MonoBehaviour
         InvokeRepeating("autoSaveStatus", 2.0f, AUTO_SAVE_INTERVAL);
         lightSwitched();
     }
-    void lightSwitched()
+    public void lightSwitched()
     {
-        if (!anyaController.isSleeping())
+        if (anyaController.isSleeping())
         {
             InvokeRepeating("increaseSleep", 2.0f, SLEEP_INCREASING_INTERVAL);
         }

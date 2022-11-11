@@ -5,7 +5,6 @@ using UnityEngine;
 public class ShopButton : MonoBehaviour
 {
     public GameObject ShopPanel;
-    private bool shopOpen=false;
     // Start is called before the first frame update
 
     public void OpenPanel()

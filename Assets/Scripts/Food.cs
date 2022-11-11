@@ -15,7 +15,7 @@ public class Food : MonoBehaviour
     {
         initialPos = transform.position;
         Debug.Log(initialPos);
-        status = GameObject.Find("Anya").GetComponent<StatusController>();
+        status = GameObject.Find("Anya2D").GetComponent<StatusController>();
     }
 
     void OnMouseDown()
